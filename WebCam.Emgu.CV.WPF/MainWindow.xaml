@@ -1,0 +1,46 @@
+﻿<Window x:Class="WebCam_Emgu_CV_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WebCam_Emgu_CV_WPF"
+        mc:Ignorable="d"
+        Title="WebCam" Height="247.501" Width="513.125" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <DockPanel Background="#FFFFEFEF">
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Left">
+            <Image x:Name="videoPlayer" Width="320" Height="180" RenderTransformOrigin="0.5,0.5" Stretch="Uniform" >
+                <!--<Image.Clip>
+                    <EllipseGeometry x:Name="ellipGeometry"
+                                    Center="200,112"
+                                    RadiusX="112"
+                                    RadiusY="112" />
+                </Image.Clip>-->
+                <Image.RenderTransform>
+                    <ScaleTransform ScaleX="-1"/>
+                </Image.RenderTransform>
+            </Image>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Left">
+            <ComboBox x:Name="comboBox"
+                  Width="167"
+                  Height="21"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Bottom"
+                  DisplayMemberPath="Name"
+                  ItemsSource="{Binding VideoDevices}"
+                  SelectedItem="{Binding CurrentDevice}"  />
+            <Button Width="67"
+                Height="21"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Click="btnStart_Click"
+                Content="Start"   />
+            <Button Width="67"
+                Height="21"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Click="btnStop_Click"
+                Content="Stop"  />
+        </StackPanel>
+    </DockPanel>
+</Window>
